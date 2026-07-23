@@ -10,7 +10,7 @@ description: >
 
 # Stack Defaults
 
-Opinionated defaults for AVID projects. Override only with a recorded reason.
+Opinionated **defaults** for AVID projects. Easy to override — record a short reason when you do. Scene beats table.
 
 ## Default Stack Table
 
@@ -26,19 +26,20 @@ Opinionated defaults for AVID projects. Override only with a recorded reason.
 | Search (web) | **Tavily** | Default research path |
 | Search (vertical) | **AnySearch** | Domain/structured retrieval |
 | Lib docs | **Context7** | New/fast-moving APIs — no memory guessing |
-| Workflow agents | **LangGraph** + langgraph skills/docs | See `agent-framework-choice` |
-| Harness agents | **Pi SDK** + official/Context7 docs | See `agent-framework-choice` |
+| Workflow agents | **LangGraph** + docs/skills | Only when workflow/HITL graph is real — see `agent-framework-choice` |
+| Local harness agents | **Pi SDK / pi-ai / embed Pi** | Local/desktop/workspace agents only — **not** default for ordinary web FE/BE |
 | Minimalism | **ponytail** | Lazier working solution |
-| Process | **Superpowers** when installed | Plan/TDD/verify |
+| Process | **Superpowers** on Claude Code when helpful | Not on Codex/OpenCode |
 | Hosting (personal) | Existing VPS + Docker + reverse proxy pattern | Follow user infra notes |
 
 ## Decision Rules
 
-1. **Repo wins**: if project already uses Vue/Next/Nuxt/etc., don't rewrite stack
-2. **MVP data**: SQLite until multi-writer, need for managed auth, or clear prod path
-3. **Managed beats yak-shave**: Supabase/Stripe/Resend over custom SMTP + homegrown billing
-4. **Docs before code**: Context7 (or official docs) before using a new major API surface
-5. **One frontend framework** per product surface — no React+Vue dual stacks without reason
+1. **Repo / scene wins**: existing stack and deployment target override the table
+2. **MVP data**: SQLite until multi-writer, managed auth need, or clear prod path
+3. **Managed beats yak-shave** when it fits: Supabase/Stripe/Resend over custom SMTP + homegrown billing
+4. **Docs before code** on fast-moving APIs (Context7 / official)
+5. **One frontend framework** per product surface unless there's a real reason
+6. **Agent runtime is scene-based** — never "always Pi" or "always LangGraph"
 
 ## Exception Log Format
 

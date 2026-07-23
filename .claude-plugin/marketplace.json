@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "AVID personal product-engineering OS for Claude Code, Codex, and OpenCode.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "avid-skill",
       "source": "./",
       "description": "Market-research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention workflow skills.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "author": {
         "name": "AVIDS2"
       }

@@ -4,7 +4,7 @@
 
 Works on **Claude Code · Codex · OpenCode** from one repo.
 
-Stops blind builds: market gates, grill-me specs, stack defaults, agent-framework choice, install-don't-reinvent.
+Personal workflow defaults (advisory): research checklists, stack defaults, scene-based agent-framework choice, install-before-reinvent — adapt when the scene does not fit.
 
 Born from a real failure mode — shipping without competitor research. AVID makes that a hard gate, not a postmortem.
 
@@ -100,7 +100,7 @@ avid-skill/
 
 ## Version
 
-`0.2.0` — multi-harness (CC + Codex + OpenCode).
+`0.3.0` — multi-harness + advisory (non-mandatory) defaults; scene-based Pi vs LangGraph.
 
 ## License
 

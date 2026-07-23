@@ -1,54 +1,23 @@
 ---
 name: install-dont-reinvent
 description: >
-  MUST use when a required CLI, library, MCP server, skill, or plugin is missing.
-  Install the official or best community option in-session. Forbids silent
-  fallback to a hand-rolled weaker implementation. Use whenever tempted to
-  "just write a quick version ourselves" for tooling that exists.
+  Prefer when a required CLI, library, MCP, or skill is missing. Install official
+  or best community option when practical. Advisory — hand-roll is allowed with
+  an explicit reason (license, abandoned, fundamental mismatch, user order).
 ---
 
 # Install, Don't Reinvent
 
-Missing capability → **install first**. Hand-rolled fallbacks are last resort and must be explicit.
-
-<HARD-GATE>
-If a mature installable tool exists for the job, do not reimplement it "temporarily" without user-visible reason and a tracked removal plan.
-</HARD-GATE>
+Bias: missing capability → **try install first**. Hand-rolled fallbacks are OK when justified — not silent permanent forks of mature tools.
 
 ## Procedure
 
-1. **Name the need** (one line)
-2. **Find install candidates**
-   - Official docs / package name
-   - Claude plugin marketplace / skills (`find-skills`)
-   - MCP servers
-   - npm / pip / gh releases
-3. **Prefer**
-   - Official > maintained popular community > obscure
-   - Already in user's stack (they have Tavily, Playwright, etc.)
-4. **Install** with the platform-appropriate method
-5. **Verify** (`--version`, smoke call, or import)
-6. **Use it** in the task
+1. Name the need  
+2. Find install candidates (official docs, plugin/skill marketplaces, npm/pip)  
+3. Install + smoke verify when feasible  
+4. If building instead: state why (license / abandoned / wrong platform / user override)
 
-## When Build Is Allowed
+## Anti-patterns
 
-Only if:
-
-- No acceptable license
-- Abandoned / insecure with no alternative
-- Fundamental mismatch (wrong platform)
-- User explicitly orders a custom build after hearing options
-
-Then: record reason; keep surface area minimal (ponytail).
-
-## Anti-Patterns
-
-- Reimplementing web search when Tavily exists
-- Custom browser automation when Playwright MCP/skill exists
-- Home-grown email stack when Resend is the default
-- Copy-pasting 200 lines of SDK wrapper instead of installing the official CLI
-- Silent degradation ("tool failed so I wrote a mock")
-
-## Related
-
-- `research-before-build`, `stack-defaults`
+- Silent weaker reimplementation when install is one command  
+- Blocking the user for hours over an optional tool  

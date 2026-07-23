@@ -1,15 +1,20 @@
 # AVID (cross-tool)
 
-If the **avid-skill** plugin (or its skills) is available, treat these as hard gates:
+Personal product-engineering **defaults** for coding agents. Advisory — adapt to scene; user overrides win.
 
-1. **New product / new vertical** → `product-bootstrap` before business code. Require market brief + P0 slice.
-2. **About to self-build a capability** → `research-before-build`.
-3. **Missing tool** → `install-dont-reinvent` (install; don't hand-roll silently).
-4. **Stack choices** → `stack-defaults` (React/Vue, SQLite→Postgres/Supabase, Resend, Stripe, Playwright, Tavily, Context7).
-5. **Agent runtime** → `agent-framework-choice` (LangGraph workflow + docs/skills; Pi SDK harness + official docs).
-6. **Knowledge/RAG** → `knowledge-architecture`.
-7. **High-stakes forks** → `multi-agent-deliberation` (or Codex second opinion).
+1. **New product / vertical** — prefer `product-bootstrap` (research + P0 cut). Compress/skip for approved spikes.
+2. **Self-build a capability** — prefer `research-before-build`.
+3. **Missing tool** — prefer `install-dont-reinvent` (install when practical).
+4. **Stack** — `stack-defaults` as opinionated starting points, not handcuffs.
+5. **Agent runtime** — `agent-framework-choice` **by scene**:
+   - Web FE/BE / SaaS → do **not** default to Pi SDK; thin SDK or LangGraph only if workflow needs it
+   - Local/desktop/workspace harness → Pi SDK / pi-ai / embed Pi as appropriate
+   - Durable business workflow → LangGraph
+6. **Knowledge/RAG** — `knowledge-architecture` when designing knowledge systems.
+7. **High-stakes forks** — optional `multi-agent-deliberation`.
 
-Implementation defaults: minimal (ponytail if present), process (Superpowers if present). No pan-development: P0 only until core loop works.
+Superpowers: **Claude Code only** (recommended, not mandatory). Codex/OpenCode: do not use Superpowers.
+Implementation bias: minimal (ponytail), P0 first.
+Tools: prefer Tavily, Context7, Playwright, official services — don't reimplement them inside AVID.
 
-Tool routing: Tavily (web), AnySearch (vertical), Context7 (lib APIs), Playwright (browser QA).
+https://github.com/AVIDS2/avid-skill

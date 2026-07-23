@@ -89,22 +89,23 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 
 Use OpenCode's native \`skill\` tool to list and load AVID skills (e.g. product-bootstrap).`;
 
-    _bootstrapCache = `<EXTREMELY_IMPORTANT>
+    _bootstrapCache = `<IMPORTANT>
 You have AVID skills loaded (avid-skill plugin).
 
-**IMPORTANT: The using-avid skill content is included below. It is ALREADY LOADED — do NOT re-load "using-avid" via the skill tool.**
+**using-avid is included below (already loaded — do not re-load it).**
 
 ${content}
 
 ${toolMapping}
 
-Hard gates from AVID:
-1. New product / new vertical feature → product-bootstrap BEFORE any business code.
-2. About to self-build a capability → research-before-build first.
-3. Missing tool/library → install-dont-reinvent (install, never hand-roll fallback).
-4. Implementation defaults → ponytail + Superpowers process skills when available.
-5. Framework choice → agent-framework-choice for LangGraph vs Pi SDK.
-</EXTREMELY_IMPORTANT>`;
+AVID defaults are advisory and scene-dependent:
+1. New product/vertical → prefer product-bootstrap when research is missing.
+2. Self-build → prefer research-before-build.
+3. Missing tool → prefer install-dont-reinvent.
+4. Agent runtime → agent-framework-choice by scene (web FE/BE: do not default to Pi SDK; local harness: Pi/pi-ai/embed Pi; durable workflow: LangGraph).
+5. Implementation → ponytail; Superpowers only on Claude Code when helpful.
+Skip/adapt with a one-line reason when a default is a bad fit. Never force an invalid runtime.
+</IMPORTANT>`;
 
     return _bootstrapCache;
   };

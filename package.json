@@ -1,6 +1,6 @@
 {
   "name": "avid-skill",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AVID personal product-engineering OS for Claude Code, Codex, and OpenCode.",
   "type": "module",
   "main": ".opencode/plugins/avid-skill.js",

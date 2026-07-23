@@ -9,7 +9,7 @@ description: >
 
 # Multi-Agent Deliberation
 
-When a wrong call is expensive, don't mono-think. Force competing lenses, then decide.
+When a wrong call is expensive, prefer competing lenses — then decide. **Optional**: skip for clear choices or when the user wants speed.
 
 ## When to Use
 

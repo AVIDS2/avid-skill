@@ -18,7 +18,7 @@ escape_for_json() {
 }
 
 using_avid_escaped=$(escape_for_json "$using_avid_content")
-session_context="<EXTREMELY_IMPORTANT>\nYou have AVID skills loaded (avid-skill plugin).\n\n**Below is the full content of 'avid-skill:using-avid' — your product-engineering OS. For all other avid skills, use the Skill tool:**\n\n${using_avid_escaped}\n\nHard gates from AVID:\n1. New product / new vertical feature → product-bootstrap BEFORE any business code.\n2. About to self-build a capability → research-before-build first.\n3. Missing tool/library → install-dont-reinvent (install, never hand-roll fallback).\n4. Implementation defaults → ponytail + Superpowers process skills when available.\n5. Framework choice → agent-framework-choice for LangGraph vs Pi SDK.\n</EXTREMELY_IMPORTANT>"
+session_context="<IMPORTANT>\nYou have AVID skills loaded (avid-skill plugin).\n\n**Below is 'avid-skill:using-avid' — personal product-engineering defaults (advisory, scene-dependent). For other avid skills, use the Skill tool:**\n\n${using_avid_escaped}\n\nAVID defaults (prefer when they fit; skip/adapt with a one-line why when they don't):\n1. New product/vertical → consider product-bootstrap (research + P0), not theater on approved spikes.\n2. Self-building a capability → prefer research-before-build.\n3. Missing tool → prefer install-dont-reinvent over silent hand-roll.\n4. Agent runtime → agent-framework-choice by SCENE: web FE/BE ≠ default Pi SDK; local harness → Pi/pi-ai/embed Pi; durable workflow → LangGraph.\n5. Implementation → ponytail; Superpowers only on Claude Code when helpful.\nNever force an invalid stack/runtime just to \"comply\".\n</IMPORTANT>"
 
 if [ -n "${CURSOR_PLUGIN_ROOT:-}" ]; then
   printf '{\n  "additional_context": "%s"\n}\n' "$session_context"
