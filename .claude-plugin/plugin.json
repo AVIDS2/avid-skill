@@ -1,0 +1,22 @@
+{
+  "name": "avid-skill",
+  "version": "0.1.0",
+  "description": "AVID personal product-engineering OS: market research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention rules for Claude Code.",
+  "author": {
+    "name": "AVIDS2",
+    "url": "https://github.com/AVIDS2"
+  },
+  "homepage": "https://github.com/AVIDS2/avid-skill",
+  "repository": "https://github.com/AVIDS2/avid-skill",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "product",
+    "research",
+    "mvp",
+    "agent-workflow",
+    "langgraph",
+    "stack-defaults",
+    "avid"
+  ]
+}

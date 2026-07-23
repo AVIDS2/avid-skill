@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# SessionStart hook for avid-skill plugin
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+using_avid_content=$(cat "${PLUGIN_ROOT}/skills/using-avid/SKILL.md" 2>&1 || echo "Error reading using-avid skill")
+
+escape_for_json() {
+    local s="$1"
+    s="${s//\\/\\\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\\n}"
+    s="${s//$'\r'/\\r}"
+    s="${s//$'\t'/\\t}"
+    printf '%s' "$s"
+}
+
+using_avid_escaped=$(escape_for_json "$using_avid_content")
+session_context="<EXTREMELY_IMPORTANT>\nYou have AVID skills loaded (avid-skill plugin).\n\n**Below is the full content of 'avid-skill:using-avid' — your product-engineering OS. For all other avid skills, use the Skill tool:**\n\n${using_avid_escaped}\n\nHard gates from AVID:\n1. New product / new vertical feature → product-bootstrap BEFORE any business code.\n2. About to self-build a capability → research-before-build first.\n3. Missing tool/library → install-dont-reinvent (install, never hand-roll fallback).\n4. Implementation defaults → ponytail + Superpowers process skills when available.\n5. Framework choice → agent-framework-choice for LangGraph vs Pi SDK.\n</EXTREMELY_IMPORTANT>"
+
+if [ -n "${CURSOR_PLUGIN_ROOT:-}" ]; then
+  printf '{\n  "additional_context": "%s"\n}\n' "$session_context"
+elif [ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -z "${COPILOT_CLI:-}" ]; then
+  printf '{\n  "hookSpecificOutput": {\n    "hookEventName": "SessionStart",\n    "additionalContext": "%s"\n  }\n}\n' "$session_context"
+else
+  printf '{\n  "additionalContext": "%s"\n}\n' "$session_context"
+fi
+
+exit 0
