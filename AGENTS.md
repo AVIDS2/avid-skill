@@ -10,8 +10,9 @@ Personal product-engineering **defaults** for coding agents. Advisory — adapt 
    - Web FE/BE / SaaS → do **not** default to Pi SDK; thin SDK or LangGraph only if workflow needs it
    - Local/desktop/workspace harness → Pi SDK / pi-ai / embed Pi as appropriate
    - Durable business workflow → LangGraph
-6. **Knowledge/RAG** — `knowledge-architecture` when designing knowledge systems.
-7. **High-stakes forks** — optional `multi-agent-deliberation`.
+6. **Model API protocol** (when building agent products) — prefer **Chat Completions** `/v1/chat/completions` for multi-model/gateway/Pi-compat; Responses/Messages optional extras unless single-vendor by design.
+7. **Knowledge/RAG** — `knowledge-architecture` when designing knowledge systems.
+8. **High-stakes forks** — optional `multi-agent-deliberation`.
 
 Superpowers: **Claude Code only** (recommended, not mandatory). Codex/OpenCode: do not use Superpowers.
 Implementation bias: minimal (ponytail), P0 first.

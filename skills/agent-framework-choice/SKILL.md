@@ -2,10 +2,11 @@
 name: agent-framework-choice
 description: >
   Use when choosing or implementing agent runtimes: LangGraph workflows, Pi /
-  pi-ai / embedded Pi harness agents, thin provider SDK loops, or "which agent
+  pi-ai / embedded Pi harness agents, thin provider SDK loops, model API wire
+  protocol (Chat Completions vs Responses vs Messages), or "which agent
   framework" decisions. Scene-based defaults — not a mandate to use Pi or
-  LangGraph. Prefer docs lookup (Context7/official). Do NOT use for ordinary
-  CRUD app features with no agent runtime.
+  LangGraph. Prefer Chat Completions for multi-model. Prefer docs lookup
+  (Context7/official). Do NOT use for ordinary CRUD with no agent runtime.
 ---
 
 # Agent Framework Choice
@@ -68,6 +69,23 @@ When scene B:
 
 When scene D or early spike: official OpenAI/Anthropic/etc. SDK + tools. Promote to LangGraph/Pi only when pain appears (state, permissions, multi-agent, long sessions).
 
+## Model API protocol (wire format) — default preference
+
+When **building** agent products or provider adapters (not when merely using Claude Code/Codex as the IDE):
+
+| Protocol | Prefer? | Notes |
+|----------|---------|--------|
+| **OpenAI Chat Completions** `POST /v1/chat/completions` | **Default first choice** for multi-model / gateway / local / Pi-compat | Widest support; Pi uses `openai-completions` for this; Ollama, vLLM, OpenRouter, most mid-proxies speak it |
+| OpenAI **Responses** `/v1/responses` | When targeting OpenAI-native agent features and ecosystem is OK being narrower | Codex may use this as a client; don't force it as the only server protocol you implement |
+| Anthropic **Messages** `/v1/messages` | When product is Claude-native | Fine as a second path or dedicated provider |
+| Legacy `/v1/completions` | Avoid for new work | Obsolete for chat/tools agents |
+
+**Rules of thumb (advisory):**
+1. New agent backends / multi-provider support → **implement and test Chat Completions first**.
+2. Pi / pi-ai custom providers → prefer `api: "openai-completions"` unless docs say otherwise for that host.
+3. Adding Responses or Messages is OK as **extra** adapters after Completions works — not instead of it, unless the product is single-vendor by design.
+4. Don't confuse **tool/MCP protocol** (how agents call tools) with **model wire protocol** (how you call LLMs). This section is only the latter.
+
 ## Docs habit (strong suggestion, not a jail)
 
 Before writing non-trivial framework code, do at least one fresh docs lookup this session for the APIs you will call. If you skip (spike / user said go), note that.
@@ -77,6 +95,7 @@ Before writing non-trivial framework code, do at least one fresh docs lookup thi
 ```markdown
 ## Scene (A/B/C/D)
 ## Runtime choice
+## Model API protocol (default: Chat Completions unless single-vendor reason)
 ## Why this fits
 ## Why not the others (esp. if rejecting Pi or LangGraph)
 ## Docs consulted
@@ -89,6 +108,8 @@ Before writing non-trivial framework code, do at least one fresh docs lookup thi
 - "Agent → must LangGraph" for a 2-tool chatbot  
 - Mixing Pi + LangGraph in P0 without a boundary  
 - Coding from memory on fast-moving agent APIs  
+- Building only Responses-API support when the product needs multi-model / OpenAI-compat gateways  
+- Using legacy `/v1/completions` for new tool-calling agents
 
 ## Related
 

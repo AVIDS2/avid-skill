@@ -28,6 +28,7 @@ Opinionated **defaults** for AVID projects. Easy to override — record a short 
 | Lib docs | **Context7** | New/fast-moving APIs — no memory guessing |
 | Workflow agents | **LangGraph** + docs/skills | Only when workflow/HITL graph is real — see `agent-framework-choice` |
 | Local harness agents | **Pi SDK / pi-ai / embed Pi** | Local/desktop/workspace agents only — **not** default for ordinary web FE/BE |
+| **Model API protocol** (agent products) | **Chat Completions** `/v1/chat/completions` | Widest multi-model/gateway/Pi `openai-completions` support; Responses/Messages as optional extras |
 | Minimalism | **ponytail** | Lazier working solution |
 | Process | **Superpowers** on Claude Code when helpful | Not on Codex/OpenCode |
 | Hosting (personal) | Existing VPS + Docker + reverse proxy pattern | Follow user infra notes |
@@ -40,6 +41,7 @@ Opinionated **defaults** for AVID projects. Easy to override — record a short 
 4. **Docs before code** on fast-moving APIs (Context7 / official)
 5. **One frontend framework** per product surface unless there's a real reason
 6. **Agent runtime is scene-based** — never "always Pi" or "always LangGraph"
+7. **Agent model wire protocol** — prefer Chat Completions for multi-provider; don't lock P0 to Responses-only unless product is OpenAI-only
 
 ## Exception Log Format
 

@@ -100,7 +100,7 @@ avid-skill/
 
 ## Version
 
-`0.3.0` — multi-harness + advisory (non-mandatory) defaults; scene-based Pi vs LangGraph.
+`0.3.1` — multi-harness + advisory defaults; scene-based runtime; agent products prefer Chat Completions wire protocol.
 
 ## License
 

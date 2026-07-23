@@ -52,6 +52,8 @@ AVID exists to reduce blind builds and wrong defaults. It does **not** exist to 
 
 Always: fresh docs (Context7 / official) before coding on a chosen framework.
 
+**Model API protocol (when building agents):** prefer **OpenAI Chat Completions** (`/v1/chat/completions`) for multi-model / gateway / Pi `openai-completions` compatibility. Treat Responses / Anthropic Messages as optional vendor paths — not the only P0 protocol unless the product is single-vendor by design. See `agent-framework-choice`.
+
 ## Tool defaults (prefer official tools)
 
 | Need | Prefer |
@@ -61,6 +63,7 @@ Always: fresh docs (Context7 / official) before coding on a chosen framework.
 | Lib docs | Context7 |
 | Browser QA | Playwright |
 | Email / pay / data | Resend / Stripe / SQLite→Postgres(Supabase) **when they fit** |
+| Agent LLM wire protocol | **Chat Completions** first (multi-provider) |
 | Minimal code | ponytail |
 | Process (Claude Code) | Superpowers when helpful |
 

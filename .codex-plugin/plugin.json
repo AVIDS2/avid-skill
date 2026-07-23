@@ -1,6 +1,6 @@
 {
   "name": "avid-skill",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "AVID personal product-engineering defaults (advisory): research, stack, scene-based agent runtime for coding agents.",
   "author": {
     "name": "AVIDS2",
