@@ -5,15 +5,15 @@
     "url": "https://github.com/AVIDS2"
   },
   "metadata": {
-    "description": "AVID personal product-engineering OS for Claude Code and compatible agents.",
-    "version": "0.1.0"
+    "description": "AVID personal product-engineering OS for Claude Code, Codex, and OpenCode.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "avid-skill",
       "source": "./",
       "description": "Market-research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention workflow skills.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "AVIDS2"
       }

@@ -71,6 +71,10 @@ Quick fixes, typo edits, and pure refactors of existing code are exempt.
 
 **Claude Code:** use the `Skill` tool. Announce: `Using avid-skill:<name> to <purpose>`.
 
+**Codex:** skills load natively from `~/.codex/skills` or the plugin skills path; invoke with `$skill-name` or auto-match on description. Tool map: `references/codex-tools.md`.
+
+**OpenCode:** use the native `skill` tool (plugin registers `skills/`). Tool map: `references/opencode-tools.md`.
+
 If a skill might apply even at 1% confidence, invoke it. Wrong skill can be abandoned after load; skipped gate cannot.
 
 ## Anti-Patterns

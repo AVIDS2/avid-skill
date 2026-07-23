@@ -1,0 +1,46 @@
+{
+  "name": "avid-skill",
+  "version": "0.2.0",
+  "description": "AVID personal product-engineering OS: market research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention rules for coding agents.",
+  "author": {
+    "name": "AVIDS2",
+    "url": "https://github.com/AVIDS2"
+  },
+  "homepage": "https://github.com/AVIDS2/avid-skill",
+  "repository": "https://github.com/AVIDS2/avid-skill",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "product",
+    "research",
+    "mvp",
+    "agent-workflow",
+    "langgraph",
+    "stack-defaults",
+    "avid",
+    "codex",
+    "claude-code",
+    "opencode"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AVID Skill",
+    "shortDescription": "Product-engineering OS: research gates, MVP cuts, stack defaults.",
+    "longDescription": "Use AVID before building new products or subsystems. Enforces market research, grill-me specs, stack defaults (React/Vue, SQLite→Postgres, Resend, Stripe), agent framework choice (LangGraph vs Pi), knowledge architecture, multi-agent deliberation, and install-don't-reinvent.",
+    "developerName": "AVIDS2",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write",
+      "Skills"
+    ],
+    "defaultPrompt": [
+      "I want to build a new product — run AVID product-bootstrap first.",
+      "Before we self-build this capability, research existing options.",
+      "Help me choose LangGraph vs Pi SDK for this agent."
+    ],
+    "websiteURL": "https://github.com/AVIDS2/avid-skill",
+    "brandColor": "#7C3AED"
+  }
+}

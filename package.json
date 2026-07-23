@@ -1,0 +1,40 @@
+{
+  "name": "avid-skill",
+  "version": "0.2.0",
+  "description": "AVID personal product-engineering OS for Claude Code, Codex, and OpenCode.",
+  "type": "module",
+  "main": ".opencode/plugins/avid-skill.js",
+  "exports": {
+    ".": "./.opencode/plugins/avid-skill.js"
+  },
+  "files": [
+    ".claude-plugin",
+    ".codex-plugin",
+    ".opencode",
+    "skills",
+    "hooks",
+    "references",
+    "scripts",
+    "docs",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "avid",
+    "skills",
+    "claude-code",
+    "codex",
+    "opencode",
+    "agent-skills",
+    "product-engineering"
+  ],
+  "author": "AVIDS2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AVIDS2/avid-skill.git"
+  },
+  "homepage": "https://github.com/AVIDS2/avid-skill"
+}

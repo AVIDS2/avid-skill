@@ -2,109 +2,105 @@
 
 **Personal product-engineering OS for coding agents.**
 
+Works on **Claude Code · Codex · OpenCode** from one repo.
+
 Stops blind builds: market gates, grill-me specs, stack defaults, agent-framework choice, install-don't-reinvent.
 
-Born from a real failure mode — shipping without competitor research (see: BidPilot vs later-discovered incumbents). AVID makes that failure a hard gate, not a postmortem.
+Born from a real failure mode — shipping without competitor research. AVID makes that a hard gate, not a postmortem.
 
 ## What's inside
 
 | Skill | Role |
 |-------|------|
-| `using-avid` | Session router + hard gates (injected on SessionStart) |
+| `using-avid` | Session router + hard gates (injected on start where supported) |
 | `product-bootstrap` | New product: research → grill-me → MVP cut → stack |
 | `research-before-build` | Before self-building any capability |
-| `stack-defaults` | React/Vue, SQLite→PG/Supabase, Resend, Stripe, … |
+| `stack-defaults` | React/Vue, SQLite→PG/Supabase, Resend, Stripe, Playwright, Tavily, Context7 |
 | `agent-framework-choice` | LangGraph vs Pi SDK + docs gate |
 | `knowledge-architecture` | Human/agent/wiki/RAG/graph decision tree |
-| `multi-agent-deliberation` | Multi-lens / Codex second opinions |
+| `multi-agent-deliberation` | Multi-lens / second opinions |
 | `install-dont-reinvent` | Install official tools; no silent hand-roll |
 
 Complements (does not replace): **Superpowers** (engineering process), **ponytail** (minimal implementation).
 
-## Install (Claude Code)
+## Install — all three harnesses
 
-### Option A — GitHub marketplace (recommended)
+From a clone (recommended on your machine):
+
+```powershell
+# Windows
+./scripts/install-all.ps1
+```
+
+```bash
+# Unix
+./scripts/install-all.sh
+```
+
+Details: [docs/MULTI_HARNESS.md](docs/MULTI_HARNESS.md)
+
+### Claude Code only
 
 ```bash
 claude plugin marketplace add AVIDS2/avid-skill
 claude plugin install avid-skill@avid-skill
 ```
 
-Restart or open a new session. SessionStart injects `using-avid`.
-
-### Option B — Local path (dev)
-
-```bash
-claude --plugin-dir /path/to/avid-skill
-```
-
-Or add marketplace from a local clone:
-
-```bash
-claude plugin marketplace add /path/to/avid-skill
-claude plugin install avid-skill@avid-skill
-```
-
-### Option C — Scripts
-
-Windows (PowerShell):
+### Codex only
 
 ```powershell
-./scripts/install.ps1
+# junctions skills into ~/.codex/skills and ~/.agents/skills
+# upserts AVID block into ~/.codex/AGENTS.md
+./scripts/install-all.ps1
 ```
 
-Unix:
+Or copy/symlink each folder under `skills/` into `~/.codex/skills/`.
 
-```bash
-./scripts/install.sh
-```
+Codex plugin manifest: [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json).
 
-## Verify
+### OpenCode only
 
-In a new Claude Code session:
-
-- Skills should appear namespaced (e.g. `avid-skill:product-bootstrap`)
-- Ask: "帮我做个新的标书 agent 产品" — agent should enter **product-bootstrap**, not scaffold code
-- Ask: "自己写个邮件发送模块" — should hit **research-before-build** / Resend default
-
-## Manual enable
-
-If marketplace install is flaky, enable via settings `enabledPlugins`:
+Add to `~/.config/opencode/opencode.json` / `opencode.jsonc`:
 
 ```json
 {
-  "enabledPlugins": {
-    "avid-skill@avid-skill": true
-  }
+  "plugin": ["avid-skill@git+https://github.com/AVIDS2/avid-skill.git"]
 }
 ```
 
-And ensure marketplace entry points at this repo (see `.claude-plugin/marketplace.json`).
+Windows fallback and troubleshooting: [`.opencode/INSTALL.md`](.opencode/INSTALL.md).
+
+## Verify
+
+| Harness | Prompt |
+|---------|--------|
+| Any | 「帮我做个新的标书 agent 产品」 |
+| Expected | Enters **product-bootstrap**, writes/asks research — **does not** scaffold business code first |
+
+Claude: skills namespaced `avid-skill:…`  
+Codex: `$product-bootstrap` or auto-match  
+OpenCode: native `skill` tool lists AVID skills
 
 ## Layout
 
 ```text
 avid-skill/
-├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
-├── hooks/                 # SessionStart → inject using-avid
-├── skills/                # SKILL.md packages
-├── references/            # deep checklists (on-demand)
-├── scripts/               # install helpers
-├── AGENTS.md              # cross-tool constitution snippet
-├── CLAUDE.md              # Claude-oriented pointer
+├── .claude-plugin/     # Claude Code marketplace + plugin.json
+├── .codex-plugin/      # Codex plugin manifest
+├── .opencode/          # OpenCode plugin + INSTALL.md
+├── hooks/              # Claude SessionStart → using-avid
+├── skills/             # shared SKILL.md packages
+├── references/         # deep checklists
+├── scripts/            # install-all / install.sh / install.ps1
+├── docs/MULTI_HARNESS.md
+├── AGENTS.md           # cross-tool constitution snippet
+├── package.json        # OpenCode main entry
 └── README.md
 ```
 
-## Cross-tool
-
-- **Claude Code**: first-class plugin
-- **Codex / others**: copy or symlink `skills/*` into `~/.agents/skills/` or `~/.codex/skills/`; merge `AGENTS.md` into global agents file
-
 ## Version
 
-`0.1.0` — initial public packaging of AVID workflow.
+`0.2.0` — multi-harness (CC + Codex + OpenCode).
 
 ## License
 

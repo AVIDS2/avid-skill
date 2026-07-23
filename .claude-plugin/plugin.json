@@ -1,7 +1,7 @@
 {
   "name": "avid-skill",
-  "version": "0.1.0",
-  "description": "AVID personal product-engineering OS: market research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention rules for Claude Code.",
+  "version": "0.2.0",
+  "description": "AVID personal product-engineering OS: market research gates, grill-me specs, stack defaults, agent framework choice, and anti-reinvention rules for Claude Code, Codex, and OpenCode.",
   "author": {
     "name": "AVIDS2",
     "url": "https://github.com/AVIDS2"
@@ -17,6 +17,9 @@
     "agent-workflow",
     "langgraph",
     "stack-defaults",
-    "avid"
+    "avid",
+    "codex",
+    "claude-code",
+    "opencode"
   ]
 }
