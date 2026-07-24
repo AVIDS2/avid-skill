@@ -30,7 +30,8 @@ Opinionated **defaults** for AVID projects. Easy to override — record a short 
 | Local harness agents | **Pi SDK / pi-ai / embed Pi** | Local/desktop/workspace agents only — **not** default for ordinary web FE/BE |
 | **Model API protocol** (agent products) | **Chat Completions** `/v1/chat/completions` | Widest multi-model/gateway/Pi `openai-completions` support; Responses/Messages as optional extras |
 | Minimalism | **ponytail** | Lazier working solution |
-| Process | **Superpowers** on Claude Code when helpful | Not on Codex/OpenCode |
+| Process (Claude Code) | **Matt Pocock skills** | Replaces Superpowers on CC; not for Codex/OpenCode |
+| Frontend craft | **Impeccable** + **taste-skill** (`design-taste-frontend`) | Pair: taste direction + Impeccable polish/audit |
 | Hosting (personal) | Existing VPS + Docker + reverse proxy pattern | Follow user infra notes |
 
 ## Decision Rules

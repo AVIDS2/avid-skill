@@ -21,7 +21,7 @@ Born from a real failure mode — shipping without competitor research. AVID mak
 | `multi-agent-deliberation` | Multi-lens / second opinions |
 | `install-dont-reinvent` | Install official tools; no silent hand-roll |
 
-Complements (does not replace): **Superpowers** (engineering process), **ponytail** (minimal implementation).
+Complements (does not replace): **Matt Pocock skills** on Claude Code (engineering process; replaces Superpowers), **Impeccable + taste-skill** for frontend, **ponytail** (minimal implementation).
 
 ## Install — all three harnesses
 
@@ -100,7 +100,7 @@ avid-skill/
 
 ## Version
 
-`0.3.1` — multi-harness + advisory defaults; scene-based runtime; agent products prefer Chat Completions wire protocol.
+`0.3.2` — multi-harness + advisory defaults; scene-based runtime; agent products prefer Chat Completions wire protocol.
 
 ## License
 

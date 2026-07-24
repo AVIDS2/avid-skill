@@ -9,7 +9,7 @@ description: >
 
 # Using AVID
 
-You have the **avid-skill** plugin: a **personal product-engineering workflow**, not a replacement for official tools (Tavily, Context7, Playwright, Superpowers, etc.).
+You have the **avid-skill** plugin: a **personal product-engineering workflow**, not a replacement for official tools (Tavily, Context7, Playwright, Matt Pocock skills, Impeccable, taste-skill, etc.).
 
 AVID exists to reduce blind builds and wrong defaults. It does **not** exist to force one stack/runtime into every project.
 
@@ -18,7 +18,7 @@ AVID exists to reduce blind builds and wrong defaults. It does **not** exist to 
 1. **User's explicit instructions** — always highest  
 2. **Scene fit / technical reality** — invalid defaults must be dropped (e.g. Pi on pure web FE/BE)  
 3. **AVID suggested defaults** — prefer when they fit  
-4. **Superpowers / ponytail** (when on Claude Code / when installed)  
+4. **Claude Code process:** Matt Pocock skills (not Superpowers) + **ponytail** when coding  
 5. Default system behavior  
 
 ## How to apply (important)
@@ -65,7 +65,14 @@ Always: fresh docs (Context7 / official) before coding on a chosen framework.
 | Email / pay / data | Resend / Stripe / SQLite→Postgres(Supabase) **when they fit** |
 | Agent LLM wire protocol | **Chat Completions** first (multi-provider) |
 | Minimal code | ponytail |
-| Process (Claude Code) | Superpowers when helpful |
+| Process (Claude Code) | **Matt Pocock skills** (`grill-me` / `grill-with-docs` → `to-spec`/`to-tickets` → `implement`/`tdd`/`code-review`) — **not Superpowers** |
+| Frontend UI | **Impeccable + taste-skill** (`design-taste-frontend`) together — taste for direction/anti-slop; Impeccable for craft/audit/polish |
+
+## Frontend pair (advisory)
+
+- Non-trivial UI: load **both** `design-taste-frontend` (taste) and **Impeccable** (`/impeccable …`), not only one.
+- Optional direction skills (`high-end-visual-design`, etc.) when the aesthetic is already chosen.
+- shadcn / component libs remain implementation tools under that pair.
 
 ## Anti-patterns
 
@@ -74,7 +81,9 @@ Always: fresh docs (Context7 / official) before coding on a chosen framework.
 - Forcing LangGraph on a trivial tool loop  
 - Silent hand-roll of a mature hosted service without a reason  
 - Ritual checklists that block a clearly scoped hotfix  
+- Using **Superpowers** as the CC engineering methodology (superseded by Matt Pocock skills)  
+- Shipping UI with only Impeccable **or** only taste when both are available  
 
 ## After planning
 
-Prefer minimal implementation; bias to P0. User can always say "skip AVID for this" — obey.
+Prefer minimal implementation (ponytail); on Claude Code prefer Matt Pocock process skills when they fit. Bias to P0. User can always say "skip AVID for this" — obey.

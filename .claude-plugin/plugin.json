@@ -1,6 +1,6 @@
 {
   "name": "avid-skill",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "AVID personal product-engineering defaults (advisory): research, stack, scene-based agent runtime choice for Claude Code, Codex, and OpenCode.",
   "author": {
     "name": "AVIDS2",

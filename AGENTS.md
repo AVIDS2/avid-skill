@@ -14,7 +14,9 @@ Personal product-engineering **defaults** for coding agents. Advisory — adapt 
 7. **Knowledge/RAG** — `knowledge-architecture` when designing knowledge systems.
 8. **High-stakes forks** — optional `multi-agent-deliberation`.
 
-Superpowers: **Claude Code only** (recommended, not mandatory). Codex/OpenCode: do not use Superpowers.
+Engineering methodology on **Claude Code**: **Matt Pocock skills** (grill → spec/tickets → implement/TDD/review). **Do not use Superpowers** (superseded on this setup).
+Codex/OpenCode: no Superpowers; no Matt Pocock as mandatory process (optional if skills installed).
+Frontend: **Impeccable + taste-skill** (`design-taste-frontend`) together when shipping non-trivial UI.
 Implementation bias: minimal (ponytail), P0 first.
 Tools: prefer Tavily, Context7, Playwright, official services — don't reimplement them inside AVID.
 
